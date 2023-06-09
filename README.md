@@ -27,4 +27,5 @@ Delete an employee from the system based on their unique ID.
 <h2> Technology Stack </h2>
 Spring Boot | Spring Data JPA | mysql-databse|  Maven
 
-
+<h2> Employee Controller </h2>
+<img src="https://i.postimg.cc/hjLdbc81/employee-App.png">
