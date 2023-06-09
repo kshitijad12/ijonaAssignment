@@ -33,13 +33,13 @@ public class GlobalExceptionHandler {
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	 public ResponseEntity<Map<String,String>> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
-	  Map<String,String> errRsp=new HashMap<>();
-	  ex.getBindingResult().getAllErrors().forEach((error)->{
-	   String fieldName=((FieldError)error).getField();
-	   String errMsg=error.getDefaultMessage();
-	   errRsp.put(fieldName, errMsg);
-	  });
+		  Map<String,String> errRsp=new HashMap<>();
+		  ex.getBindingResult().getAllErrors().forEach((error)->{
+		   String fieldName=((FieldError)error).getField();
+		   String errMsg=error.getDefaultMessage();
+		   errRsp.put(fieldName, errMsg);
+		  });
 	  
-	  return new ResponseEntity<Map<String,String>>(errRsp,HttpStatus.BAD_REQUEST);
+	 	 return new ResponseEntity<Map<String,String>>(errRsp,HttpStatus.BAD_REQUEST);
 	 }
 }
