@@ -1,6 +1,8 @@
 package com.Employee.Exception;
 
+
 import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.Employee.Payloads.ApiResponse;
+
+
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -25,14 +29,17 @@ public class GlobalExceptionHandler {
 	}
 	
 	
+
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<Map<String,String>> handleMethodArgsNotValidException(MethodArgumentNotValidException ex){
-		
-		Map<String,String> resp = new HashMap<>();
-		ex.getBindingResult().getAllErrors().forEach((error)->{
-			
-			((FieldError)error).getField();
-		});
-		return new ResponseEntity<Map<String,String>>(resp,HttpStatus.BAD_REQUEST);
-	}
+	 public ResponseEntity<Map<String,String>> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
+	  Map<String,String> errRsp=new HashMap<>();
+	  ex.getBindingResult().getAllErrors().forEach((error)->{
+	   String fieldName=((FieldError)error).getField();
+	   String errMsg=error.getDefaultMessage();
+	   errRsp.put(fieldName, errMsg);
+	  });
+	  
+	  return new ResponseEntity<Map<String,String>>(errRsp,HttpStatus.BAD_REQUEST);
+	 }
 }

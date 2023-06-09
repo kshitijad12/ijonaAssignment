@@ -2,10 +2,14 @@ package com.Employee.Payloads;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+// I created EmployeeDto to avoid direct connected to employee Entity class
+
 
 @NoArgsConstructor
 @Getter
@@ -18,7 +22,8 @@ public class EmployeeDto {
 	@Size(min=4, message="Employee must be min of 4 characters")
 	private String name;
 	
-	@Email
+	
+	@Email(message="Invalid Email!!")
 	private String email;
 	
     @NotEmpty

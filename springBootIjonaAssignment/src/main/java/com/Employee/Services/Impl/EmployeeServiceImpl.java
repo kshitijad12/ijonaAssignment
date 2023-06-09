@@ -22,6 +22,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	private ModelMapper modelMapper;
 	 
+	
+	// we use ModelMapper here because , without ModelMapper we need to to manually write code to copy each field from EmployeeDto to Employee or vice versa.
+	//ModelMapper simplifies the process of mapping data between objects with different structures.
+	
 	@Override
 	public EmployeeDto AddEmployee(EmployeeDto employeeDto) {
 		
@@ -71,6 +75,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 	}
 	
+	//to convert EmployeeDto to employee because here type of method is employee
+	
 	public Employee dtoToEmployee(EmployeeDto employeeDto) {
 		
 		Employee employee = new Employee();
@@ -80,6 +86,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employee.setEmail(employeeDto.getEmail());
 		return employee;
 	}
+	
+	//to convert Employee to employeeDto because here type of method is employeeDto
 	
 	public EmployeeDto employeeToDto(Employee employee) {
 		
