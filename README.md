@@ -28,4 +28,4 @@ Delete an employee from the system based on their unique ID.
 Spring Boot | Spring Data JPA | mysql-databse|  Maven
 
 <h2> Employee Controller </h2>
-<img src="https://i.postimg.cc/hjLdbc81/employee-App.png">
+<img src="[https://i.postimg.cc/hjLdbc81/employee-App.png](https://drive.google.com/file/d/1RKu4YggC4OFj8N9m04AedSA4exRVyfVN/view?usp=sharing)">
