@@ -40,37 +40,37 @@ public class EmployeeController {
 	
 	//update details of employee
 	
-    @PutMapping("/{empId}")
-	public ResponseEntity<EmployeeDto> UpdateEmployee(@Valid @RequestBody EmployeeDto employeeDto, @PathVariable Integer empId ){
-		
-    	EmployeeDto updateEmp = this.employeeService.UpdateEmployee(employeeDto, empId);
-    	return ResponseEntity.ok(updateEmp);
+	@PutMapping("/{empId}")
+		public ResponseEntity<EmployeeDto> UpdateEmployee(@Valid @RequestBody EmployeeDto employeeDto, @PathVariable Integer empId ){
+
+		EmployeeDto updateEmp = this.employeeService.UpdateEmployee(employeeDto, empId);
+		return ResponseEntity.ok(updateEmp);
 	}
     
     
-    //get employee by id
+        //get employee by id
     
-    @GetMapping("/{empId}")
-    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Integer empId){
+        @GetMapping("/{empId}")
+                 public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Integer empId){
     	
-    	return ResponseEntity.ok(this.employeeService.getEmployeeById(empId));
-    }
+    	         return ResponseEntity.ok(this.employeeService.getEmployeeById(empId));
+        }
     
-    // get all employee
-    
-    @GetMapping("/")
-    public ResponseEntity<List<EmployeeDto>> getAllEmployee(){
-    	
-    	return ResponseEntity.ok(this.employeeService.getAllEmployee());
-    	
-    }
-    
-    // to delete employee by id
-    
-    @DeleteMapping("/{empId}")
-    public ResponseEntity<ApiResponse> deleteEmployee(@PathVariable Integer empId){
-    	
-    	this.employeeService.deleteEmployee(empId);
-    	return new ResponseEntity<ApiResponse>(new ApiResponse("Employee deleted successfully",true),HttpStatus.OK);
-    }
+        // get all employee
+
+	@GetMapping("/")
+	    public ResponseEntity<List<EmployeeDto>> getAllEmployee(){
+
+		return ResponseEntity.ok(this.employeeService.getAllEmployee());
+
+	}
+
+	// to delete employee by id
+
+	 @DeleteMapping("/{empId}")
+	    public ResponseEntity<ApiResponse> deleteEmployee(@PathVariable Integer empId){
+
+		this.employeeService.deleteEmployee(empId);
+		return new ResponseEntity<ApiResponse>(new ApiResponse("Employee deleted successfully",true),HttpStatus.OK);
+	 }
 }
