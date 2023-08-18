@@ -73,7 +73,7 @@ public class EmployeeController {
 	    public ResponseEntity<ApiResponse> deleteEmployee(@PathVariable Integer empId){
 
 		this.employeeService.deleteEmployee(empId);
-		return new ResponseEntity<ApiResponse>(new ApiResponse("Employee deleted successfully",true),HttpStatus.OK);
+		return new ResponseEntity<ApiResponse>(new ApiResponse(),HttpStatus.OK);
 	 }
 	 
 	 
