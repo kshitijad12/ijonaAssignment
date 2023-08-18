@@ -73,4 +73,6 @@ public class EmployeeController {
 		this.employeeService.deleteEmployee(empId);
 		return new ResponseEntity<ApiResponse>(new ApiResponse("Employee deleted successfully",true),HttpStatus.OK);
 	 }
+	 
+	 
 }
