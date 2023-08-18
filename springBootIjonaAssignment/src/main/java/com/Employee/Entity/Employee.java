@@ -25,7 +25,13 @@ public class Employee {
 	@Column(name="Employee_name",nullable = false,length = 10)
 	private String name;
 	
+	
+	// Pattern for email 
+	
 	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$", message = "Invalid email address")
 	private String email;
 	private String department;
+	
+	
+	
 }
